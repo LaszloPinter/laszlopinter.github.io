@@ -60,16 +60,6 @@
   .lookdesc { color: var(--muted); font-size: 14.5px; margin-top: 10px; }
   .lookdesc em { font-style: normal; color: var(--fg); }
 
-  section.compose { padding: 88px 0; border-top: 1px solid var(--line); }
-  .formula { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3.2vw, 34px); margin: 0 0 40px; }
-  .compose-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .axis { background: var(--card); border: 1px solid var(--line); padding: 20px 22px; }
-  .axis h3 { margin: 0 0 10px; font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-  .axis ul { list-style: none; margin: 0; padding: 0; }
-  .axis li { padding: 9px 0; border-top: 1px solid var(--line); }
-  .axis li:first-child { border-top: none; }
-  .axis .n { font-family: 'Cormorant Garamond', serif; font-size: 20px; }
-  .axis .d { color: var(--muted); font-size: 13px; display: block; margin-top: 1px; }
   .namenote { color: var(--muted); font-size: 13px; max-width: 64ch; margin: 28px 0 0; }
 
   section.embroidery { background: var(--cocoa); color: var(--thread); padding: 96px 0; }
@@ -99,7 +89,7 @@
 
   @media (max-width: 800px) {
     .hero .wrap, .emb-grid { grid-template-columns: 1fr; gap: 40px; }
-    .grid3, .pal-grid, .compose-grid { grid-template-columns: 1fr; }
+    .grid3, .pal-grid { grid-template-columns: 1fr; }
     nav .links { gap: 18px; }
   }
 </style>
@@ -110,9 +100,8 @@
   <div class="wrap">
     <span class="mark">Ọ̀nà</span>
     <span class="links">
-      <a href="#looks">Looks</a>
-      <a href="#compose">Compose</a>
       <a href="#embroidery">Embroidery</a>
+      <a href="#looks">Looks</a>
       <a href="#palette">Palette</a>
       <a href="#atelier">Atelier</a>
     </span>
@@ -124,87 +113,14 @@
     <div>
       <p class="eyebrow">Beige · Brown · One white thread</p>
       <h1>Robes cut wide,<br>stitched quietly.</h1>
-      <p class="lede">Three cuts inherited from the agbada — the full robe, a box overshirt,
-      a cropped jacket. Each embroidered in a single thread — Matyó florals from Mezőkövesd
-      or Òsùpá, the moon drawn in circles, on the ground you choose.</p>
+      <p class="lede">Three cuts inherited from the agbada — the full robe, a layered
+      overshirt, a box jacket. Each embroidered in a single thread — Matyó florals from
+      Mezőkövesd or Òsùpá, the moon drawn in circles, on the ground you choose.</p>
     </div>
     <img src="assets/hero.jpg" width="1280" height="1600"
          alt="Tan agbada with tonal stitched chest panel, worn against a beige ground">
   </div>
 </header>
-
-<section class="looks" id="looks">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Three, worn daily</h2>
-      <p class="eyebrow">Ibadan cut · Stockholm wear</p>
-    </div>
-    <div class="grid3">
-      <figure>
-        <img src="assets/hero.jpg" width="1280" height="1600" alt="Full agbada in raw cotton">
-        <figcaption>
-          <div class="lookname">Agbádá</div>
-          <div class="lookcut">Full robe · to commission</div>
-          <p class="lookdesc">Floor length, wide draped sleeves, raw cotton.</p>
-        </figcaption>
-      </figure>
-      <figure>
-        <img src="assets/look-overshirt.jpg" width="928" height="1152" alt="Camel box overshirt in brushed linen">
-        <figcaption>
-          <div class="lookname">Ìtura</div>
-          <div class="lookcut">Box overshirt</div>
-          <p class="lookdesc">Hip length, square shoulder, brushed linen.</p>
-        </figcaption>
-      </figure>
-      <figure>
-        <img src="assets/look-jacket.jpg" width="1122" height="1402" alt="Cocoa box jacket in twill, worn over a cream tee">
-        <figcaption>
-          <div class="lookname">Kékeré</div>
-          <div class="lookcut">Box jacket</div>
-          <p class="lookdesc">High-hip length, relaxed box cut, drop shoulder, cocoa twill.</p>
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section class="compose" id="compose">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Compose your robe</h2>
-      <p class="eyebrow">No fixed pairings</p>
-    </div>
-    <p class="formula">2 cuts &nbsp;×&nbsp; 2 patterns &nbsp;×&nbsp; 3 grounds &nbsp;=&nbsp; twelve robes</p>
-    <div class="compose-grid">
-      <div class="axis">
-        <h3>Cut</h3>
-        <ul>
-          <li><span class="n">Ìtura</span><span class="d">Box overshirt — hip length, brushed linen</span></li>
-          <li><span class="n">Kékeré</span><span class="d">Box jacket — high-hip, relaxed, twill</span></li>
-          <li><span class="n">Agbádá</span><span class="d">Full robe — outside the twelve, sewn to commission</span></li>
-        </ul>
-      </div>
-      <div class="axis">
-        <h3>Pattern</h3>
-        <ul>
-          <li><span class="n">Mezőkövesd</span><span class="d">Matyó rose — satin, chain, stem stitch</span></li>
-          <li><span class="n">Òsùpá</span><span class="d">The moon — concentric medallion; couched line, seed knots</span></li>
-        </ul>
-      </div>
-      <div class="axis">
-        <h3>Ground</h3>
-        <ul>
-          <li><span class="n">Black</span><span class="d">ash thread</span></li>
-          <li><span class="n">Cream</span><span class="d">cocoa thread</span></li>
-          <li><span class="n">Cocoa</span><span class="d">white thread</span></li>
-        </ul>
-      </div>
-    </div>
-    <p class="namenote">Names are proposals: the cuts carry Yoruba words, the patterns their
-    origins — the Matyó rose by its town, the medallion by the moon. Yoruba spelling and
-    tone marks go to the family for correction before anything ships.</p>
-  </div>
-</section>
 
 <section class="embroidery" id="embroidery">
   <div class="wrap emb-grid">
@@ -234,6 +150,44 @@
         <figcaption>Òsùpá · the moon — for Ibadan to redraw</figcaption>
       </figure>
     </div>
+  </div>
+</section>
+
+<section class="looks" id="looks">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Three, worn daily</h2>
+      <p class="eyebrow">Ibadan cut · Stockholm wear</p>
+    </div>
+    <div class="grid3">
+      <figure>
+        <img src="assets/hero.jpg" width="1280" height="1600" alt="Full agbada in raw cotton">
+        <figcaption>
+          <div class="lookname">Agbádá</div>
+          <div class="lookcut">Full robe · to commission</div>
+          <p class="lookdesc">Floor length, wide draped sleeves, raw cotton.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="assets/look-overshirt.jpg" width="928" height="1152" alt="Camel box overshirt in brushed linen">
+        <figcaption>
+          <div class="lookname">Ìtura</div>
+          <div class="lookcut">Layered overshirt</div>
+          <p class="lookdesc">Mid-thigh, open front, worn in layers over a tee, brushed linen.
+          Photo shows the closed cut — ours falls longer and hangs open.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="assets/look-jacket.jpg" width="1122" height="1402" alt="Cocoa box jacket in twill, worn over a cream tee">
+        <figcaption>
+          <div class="lookname">Kékeré</div>
+          <div class="lookcut">Box jacket</div>
+          <p class="lookdesc">High-hip length, relaxed box cut, drop shoulder, cocoa twill.</p>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="namenote">Names are proposals — Yoruba spelling and tone marks go to the family
+    for correction before anything ships.</p>
   </div>
 </section>
 
