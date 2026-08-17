@@ -60,6 +60,18 @@
   .lookdesc { color: var(--muted); font-size: 14.5px; margin-top: 10px; }
   .lookdesc em { font-style: normal; color: var(--fg); }
 
+  section.compose { padding: 88px 0; border-top: 1px solid var(--line); }
+  .formula { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3.2vw, 34px); margin: 0 0 40px; }
+  .compose-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .axis { background: var(--card); border: 1px solid var(--line); padding: 20px 22px; }
+  .axis h3 { margin: 0 0 10px; font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .axis ul { list-style: none; margin: 0; padding: 0; }
+  .axis li { padding: 9px 0; border-top: 1px solid var(--line); }
+  .axis li:first-child { border-top: none; }
+  .axis .n { font-family: 'Cormorant Garamond', serif; font-size: 20px; }
+  .axis .d { color: var(--muted); font-size: 13px; display: block; margin-top: 1px; }
+  .namenote { color: var(--muted); font-size: 13px; max-width: 64ch; margin: 28px 0 0; }
+
   section.embroidery { background: var(--cocoa); color: var(--thread); padding: 96px 0; }
   .emb-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 64px; align-items: start; }
   .embroidery .eyebrow { color: var(--thread-dim); }
@@ -87,7 +99,7 @@
 
   @media (max-width: 800px) {
     .hero .wrap, .emb-grid { grid-template-columns: 1fr; gap: 40px; }
-    .grid3, .pal-grid { grid-template-columns: 1fr; }
+    .grid3, .pal-grid, .compose-grid { grid-template-columns: 1fr; }
     nav .links { gap: 18px; }
   }
 </style>
@@ -99,6 +111,7 @@
     <span class="mark">Agbada</span>
     <span class="links">
       <a href="#looks">Looks</a>
+      <a href="#compose">Compose</a>
       <a href="#embroidery">Embroidery</a>
       <a href="#palette">Palette</a>
       <a href="#atelier">Atelier</a>
@@ -112,8 +125,8 @@
       <p class="eyebrow">Beige · Brown · One white thread</p>
       <h1>Robes cut wide,<br>stitched quietly.</h1>
       <p class="lede">Three cuts inherited from the agbada — the full robe, a box overshirt,
-      a cropped jacket. Each embroidered in a single white thread: Matyó florals from
-      Mezőkövesd, concentric circles from Nigeria.</p>
+      a cropped jacket. Each embroidered in a single thread — Matyó florals from Mezőkövesd
+      or concentric circles from Kano, on the ground you choose.</p>
     </div>
     <img src="assets/hero.jpg" width="1280" height="1600"
          alt="Tan agbada with tonal stitched chest panel, worn against a beige ground">
@@ -130,31 +143,66 @@
       <figure>
         <img src="assets/hero.jpg" width="1280" height="1600" alt="Full agbada in raw cotton">
         <figcaption>
-          <div class="lookname">Ìtura</div>
-          <div class="lookcut">Full agbada</div>
-          <p class="lookdesc">Floor length, wide draped sleeves, raw cotton.<br>
-          <em>Matyó rose across the placket</em> — satin, chain and stem stitch.</p>
+          <div class="lookname">Agbádá</div>
+          <div class="lookcut">Full robe · to commission</div>
+          <p class="lookdesc">Floor length, wide draped sleeves, raw cotton.</p>
         </figcaption>
       </figure>
       <figure>
         <img src="assets/look-overshirt.jpg" width="928" height="1152" alt="Camel box overshirt in brushed linen">
         <figcaption>
-          <div class="lookname">Söder</div>
+          <div class="lookname">Bùbá</div>
           <div class="lookcut">Box overshirt</div>
-          <p class="lookdesc">Hip length, square shoulder, brushed linen.<br>
-          <em>Concentric circles at the chest</em> — couched line, seed knots.</p>
+          <p class="lookdesc">Hip length, square shoulder, brushed linen.</p>
         </figcaption>
       </figure>
       <figure>
         <img src="assets/look-jacket.jpg" width="928" height="1152" alt="Cocoa cropped jacket in twill">
         <figcaption>
-          <div class="lookname">Vasa</div>
+          <div class="lookname">Kékeré</div>
           <div class="lookcut">Cropped jacket</div>
-          <p class="lookdesc">Waist length, hem band, cocoa twill.<br>
-          <em>Matyó vine at the hem</em> — worked small.</p>
+          <p class="lookdesc">Waist length, hem band, cocoa twill.</p>
         </figcaption>
       </figure>
     </div>
+  </div>
+</section>
+
+<section class="compose" id="compose">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Compose your robe</h2>
+      <p class="eyebrow">No fixed pairings</p>
+    </div>
+    <p class="formula">2 cuts &nbsp;×&nbsp; 2 patterns &nbsp;×&nbsp; 3 grounds &nbsp;=&nbsp; twelve robes</p>
+    <div class="compose-grid">
+      <div class="axis">
+        <h3>Cut</h3>
+        <ul>
+          <li><span class="n">Bùbá</span><span class="d">Box overshirt — hip length, brushed linen</span></li>
+          <li><span class="n">Kékeré</span><span class="d">Cropped jacket — waist length, twill</span></li>
+          <li><span class="n">Agbádá</span><span class="d">Full robe — outside the twelve, sewn to commission</span></li>
+        </ul>
+      </div>
+      <div class="axis">
+        <h3>Pattern</h3>
+        <ul>
+          <li><span class="n">Mezőkövesd</span><span class="d">Matyó rose — satin, chain, stem stitch</span></li>
+          <li><span class="n">Kano</span><span class="d">Concentric medallion — couched line, seed knots</span></li>
+        </ul>
+      </div>
+      <div class="axis">
+        <h3>Ground</h3>
+        <ul>
+          <li><span class="n">Black</span><span class="d">ash thread</span></li>
+          <li><span class="n">Cream</span><span class="d">cocoa thread</span></li>
+          <li><span class="n">Cocoa</span><span class="d">white thread</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="namenote">Names are proposals: the cuts carry Yoruba garment words, the patterns
+    carry their two source towns. Yoruba spelling and tone marks go to the family for
+    correction before anything ships.</p>
   </div>
 </section>
 
@@ -178,12 +226,12 @@
       <figure>
         <img src="assets/embroidery-matyo.jpg" width="1200" height="1200" loading="lazy"
              alt="White Matyó floral embroidery on brown woven cloth">
-        <figcaption>Matyó hímzés · Mezőkövesd</figcaption>
+        <figcaption>Mezőkövesd · Matyó hímzés</figcaption>
       </figure>
       <figure>
         <img src="assets/embroidery-circles.jpg" width="1200" height="1200" loading="lazy"
              alt="White concentric circle embroidery with seed knots on brown cloth">
-        <figcaption>Concentric medallion · for Lagos to confirm</figcaption>
+        <figcaption>Kano · concentric medallion — for Lagos to redraw</figcaption>
       </figure>
     </div>
   </div>
