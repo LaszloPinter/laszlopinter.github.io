@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Agbada Atelier — Three Robes, One White Thread</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='4' fill='none' stroke='%23F5F1E8' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23F5F1E8' stroke-width='2'/%3E%3Crect width='32' height='32' fill='%2333281F' rx='6' style='mix-blend-mode:destination-over'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3EFE5;
+    --card: #F9F6EE;
+    --fg: #4C4036;
+    --muted: #837260;
+    --line: #DDD4C0;
+    --cocoa: #33281F;
+    --cocoa-2: #2A211A;
+    --thread: #F5F1E8;
+    --thread-dim: #CBBFA9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Karla', system-ui, sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  h1, h2, .display { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; line-height: 1.08; margin: 0; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600;
+  }
+
+  nav { border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: baseline; justify-content: space-between; padding-top: 22px; padding-bottom: 22px; }
+  nav .mark { font-family: 'Cormorant Garamond', serif; font-size: 22px; letter-spacing: 0.04em; }
+  nav .links { display: flex; gap: 32px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; }
+  nav a:hover { color: var(--fg); }
+
+  .hero .wrap { display: grid; grid-template-columns: 5fr 6fr; gap: 56px; align-items: center; padding-top: 72px; padding-bottom: 88px; }
+  .hero h1 { font-size: clamp(42px, 6vw, 72px); }
+  .hero p.lede { color: var(--muted); max-width: 44ch; font-size: 17px; margin: 24px 0 0; }
+
+  section.looks { padding: 88px 0; border-top: 1px solid var(--line); }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 48px; }
+  .sec-head h2 { font-size: clamp(30px, 4vw, 44px); }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 32px; }
+  figure { margin: 0; }
+  figcaption { margin-top: 16px; }
+  .lookname { font-family: 'Cormorant Garamond', serif; font-size: 26px; }
+  .lookcut { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-top: 2px; }
+  .lookdesc { color: var(--muted); font-size: 14.5px; margin-top: 10px; }
+  .lookdesc em { font-style: normal; color: var(--fg); }
+
+  section.embroidery { background: var(--cocoa); color: var(--thread); padding: 96px 0; }
+  .emb-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 64px; align-items: start; }
+  .embroidery .eyebrow { color: var(--thread-dim); }
+  .embroidery h2 { font-size: clamp(34px, 4.5vw, 54px); margin-top: 16px; }
+  .embroidery p { color: var(--thread-dim); max-width: 46ch; }
+  .embroidery p strong { color: var(--thread); font-weight: 500; }
+  dl.chips { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 32px; margin: 40px 0 0; }
+  dl.chips dt { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--thread-dim); opacity: 0.75; }
+  dl.chips dd { margin: 6px 0 0; color: var(--thread); font-size: 15px; }
+  .emb-photos { display: grid; gap: 28px; }
+  .emb-photos figcaption { font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--thread-dim); margin-top: 12px; }
+
+  section.palette { padding: 88px 0; border-top: 1px solid var(--line); }
+  .pal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .pal-card { background: var(--card); border: 1px solid var(--line); }
+  .pal-swatch { height: 130px; display: flex; align-items: center; justify-content: center; }
+  .pal-swatch span { width: 34px; height: 34px; border-radius: 50%; display: block; }
+  .pal-meta { padding: 18px 20px 20px; }
+  .pal-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; }
+  .pal-note { color: var(--muted); font-size: 13.5px; margin-top: 4px; }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0 56px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer p { margin: 0; color: var(--muted); font-size: 13.5px; letter-spacing: 0.06em; }
+
+  @media (max-width: 800px) {
+    .hero .wrap, .emb-grid { grid-template-columns: 1fr; gap: 40px; }
+    .grid3, .pal-grid { grid-template-columns: 1fr; }
+    nav .links { gap: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="mark">Agbada</span>
+    <span class="links">
+      <a href="#looks">Looks</a>
+      <a href="#embroidery">Embroidery</a>
+      <a href="#palette">Palette</a>
+      <a href="#atelier">Atelier</a>
+    </span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Beige · Brown · One white thread</p>
+      <h1>Robes cut wide,<br>stitched quietly.</h1>
+      <p class="lede">Three cuts inherited from the agbada — the full robe, a box overshirt,
+      a cropped jacket. Each embroidered in a single white thread: Matyó florals from
+      Mezőkövesd, concentric circles from Nigeria.</p>
+    </div>
+    <img src="assets/hero.jpg" width="1280" height="1600"
+         alt="Tan agbada with tonal stitched chest panel, worn against a beige ground">
+  </div>
+</header>
+
+<section class="looks" id="looks">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Three, worn daily</h2>
+      <p class="eyebrow">Lagos cut · Stockholm wear</p>
+    </div>
+    <div class="grid3">
+      <figure>
+        <img src="assets/hero.jpg" width="1280" height="1600" alt="Full agbada in raw cotton">
+        <figcaption>
+          <div class="lookname">Ìtura</div>
+          <div class="lookcut">Full agbada</div>
+          <p class="lookdesc">Floor length, wide draped sleeves, raw cotton.<br>
+          <em>Matyó rose across the placket</em> — satin, chain and stem stitch.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="assets/look-overshirt.jpg" width="928" height="1160" alt="Camel box overshirt in brushed linen">
+        <figcaption>
+          <div class="lookname">Söder</div>
+          <div class="lookcut">Box overshirt</div>
+          <p class="lookdesc">Hip length, square shoulder, brushed linen.<br>
+          <em>Concentric circles at the chest</em> — couched line, seed knots.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="assets/look-jacket.jpg" width="928" height="1160" alt="Cocoa cropped jacket in twill">
+        <figcaption>
+          <div class="lookname">Vasa</div>
+          <div class="lookcut">Cropped jacket</div>
+          <p class="lookdesc">Waist length, hem band, cocoa twill.<br>
+          <em>Matyó vine at the hem</em> — worked small.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="embroidery" id="embroidery">
+  <div class="wrap emb-grid">
+    <div>
+      <p class="eyebrow">Two hands, one thread</p>
+      <h2>Hungary in flowers.<br>Nigeria in circles.</h2>
+      <p style="margin-top:24px">The Matyó rose is stripped to a single white thread, so the
+      pattern reads as light on cloth rather than decoration. The Nigerian answer is geometry:
+      concentric rings, seed knots and curved rays radiating from one still centre.</p>
+      <p><strong>Both drawings travel to Lagos for correction — the workshop holds the pen.</strong></p>
+      <dl class="chips">
+        <div><dt>Thread</dt><dd>Cotton, undyed white</dd></div>
+        <div><dt>Stitch</dt><dd>Satin, chain, couched</dd></div>
+        <div><dt>Cloth</dt><dd>Beige, clay, cocoa</dd></div>
+        <div><dt>Hours</dt><dd>Workshop to quote</dd></div>
+      </dl>
+    </div>
+    <div class="emb-photos">
+      <figure>
+        <img src="assets/embroidery-matyo.jpg" width="1200" height="1200" loading="lazy"
+             alt="White Matyó floral embroidery on brown woven cloth">
+        <figcaption>Matyó hímzés · Mezőkövesd</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/embroidery-circles.jpg" width="1200" height="1200" loading="lazy"
+             alt="White concentric circle embroidery with seed knots on brown cloth">
+        <figcaption>Concentric medallion · for Lagos to confirm</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="palette" id="palette">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Palette</h2>
+      <p class="eyebrow">One garment, three grounds</p>
+    </div>
+    <div class="pal-grid">
+      <div class="pal-card">
+        <div class="pal-swatch" style="background:#26262B"><span style="background:#C8BFA8"></span></div>
+        <div class="pal-meta">
+          <div class="pal-name">Black · ash thread</div>
+          <p class="pal-note">The evening ground — motif as light on dark.</p>
+        </div>
+      </div>
+      <div class="pal-card">
+        <div class="pal-swatch" style="background:#EFE9DB"><span style="background:#6B4A32"></span></div>
+        <div class="pal-meta">
+          <div class="pal-name">Cream · cocoa thread</div>
+          <p class="pal-note">The daylight ground — closest to the linen reference.</p>
+        </div>
+      </div>
+      <div class="pal-card">
+        <div class="pal-swatch" style="background:#55432F"><span style="background:#F5F1E8"></span></div>
+        <div class="pal-meta">
+          <div class="pal-name">Cocoa · white thread</div>
+          <p class="pal-note">As photographed above — the reference colourway.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="atelier">
+  <div class="wrap">
+    <p>Agbada — Lagos · Mezőkövesd · Stockholm</p>
+    <p>Capsule № 1 · working selection, not a shop</p>
+  </div>
+</footer>
+
+</body>
+</html>
