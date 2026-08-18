@@ -59,25 +59,11 @@
   .lookcut { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-top: 2px; }
   .lookdesc { color: var(--muted); font-size: 14.5px; margin-top: 10px; }
   .lookdesc em { font-style: normal; color: var(--fg); }
-  .ph {
-    aspect-ratio: 4 / 5;
-    background: var(--card);
-    border: 1px dashed var(--line);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 72px; color: var(--muted);
-  }
 
   .namenote { color: var(--muted); font-size: 13px; max-width: 64ch; margin: 28px 0 0; }
 
-  section.composer { padding: 88px 0; border-top: 1px solid var(--line); }
-  .composer-grid { display: grid; grid-template-columns: 6fr 5fr; gap: 56px; align-items: start; }
-  .stage { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--card); }
-  .stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.45s ease; }
-  .stage img.on { opacity: 1; }
-  .order-line { font-family: 'Cormorant Garamond', serif; font-size: 24px; margin: 16px 0 0; }
-  .order-note { color: var(--muted); font-size: 13px; margin: 4px 0 0; min-height: 1.2em; }
-  .ctrl { margin-bottom: 30px; }
+  .togglerow { display: flex; gap: 24px 56px; flex-wrap: wrap; margin: -8px 0 44px; }
+  .ctrl { margin-bottom: 0; }
   .ctrl h3 { margin: 0 0 12px; font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
   .opts { display: flex; gap: 10px; flex-wrap: wrap; }
   .opt {
@@ -103,14 +89,6 @@
   .emb-photos { display: grid; gap: 28px; }
   .emb-photos figcaption { font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--thread-dim); margin-top: 12px; }
 
-  section.palette { padding: 88px 0; border-top: 1px solid var(--line); }
-  .pal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .pal-card { background: var(--card); border: 1px solid var(--line); }
-  .pal-swatch { height: 130px; display: flex; align-items: center; justify-content: center; }
-  .pal-swatch span { width: 34px; height: 34px; border-radius: 50%; display: block; }
-  .pal-meta { padding: 18px 20px 20px; }
-  .pal-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; }
-  .pal-note { color: var(--muted); font-size: 13.5px; margin-top: 4px; }
 
   footer { border-top: 1px solid var(--line); padding: 40px 0 56px; }
   footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -118,7 +96,8 @@
 
   @media (max-width: 800px) {
     .hero .wrap, .emb-grid { grid-template-columns: 1fr; gap: 40px; }
-    .grid3, .pal-grid, .composer-grid { grid-template-columns: 1fr; }
+    .grid3 { grid-template-columns: 1fr; }
+    .togglerow { gap: 20px; }
     nav .links { gap: 18px; }
   }
 </style>
@@ -129,10 +108,8 @@
   <div class="wrap">
     <span class="mark">Ọ̀nà</span>
     <span class="links">
-      <a href="#embroidery">Embroidery</a>
       <a href="#looks">Looks</a>
-      <a href="#compose">Compose</a>
-      <a href="#palette">Palette</a>
+      <a href="#embroidery">Embroidery</a>
       <a href="#atelier">Atelier</a>
     </span>
   </div>
@@ -151,6 +128,99 @@
          alt="Tan agbada with tonal stitched chest panel, worn against a beige ground">
   </div>
 </header>
+
+<section class="looks" id="looks">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Three, worn daily</h2>
+      <p class="eyebrow">Ibadan cut · Stockholm wear</p>
+    </div>
+    <div class="togglerow">
+      <div class="ctrl">
+        <h3>Pattern</h3>
+        <div class="opts" data-axis="pattern">
+          <button class="opt" data-v="osupa" aria-pressed="true">Òsùpá<span class="sub">the moon</span></button>
+          <button class="opt" data-v="mezo" aria-pressed="false">Mezőkövesd<span class="sub">matyó rose</span></button>
+        </div>
+      </div>
+      <div class="ctrl">
+        <h3>Ground</h3>
+        <div class="opts" data-axis="ground">
+          <button class="opt" data-v="black" aria-pressed="true"><i class="dot" style="background:#26262B"></i>Black<span class="sub">ash thread</span></button>
+          <button class="opt" data-v="cream" aria-pressed="false"><i class="dot" style="background:#EFE9DB"></i>Cream<span class="sub">cocoa thread</span></button>
+          <button class="opt" data-v="cocoa" aria-pressed="false"><i class="dot" style="background:#55432F"></i>Cocoa<span class="sub">white thread</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="grid3">
+      <figure>
+        <img class="dyn" data-cut="agbada" src="assets/sel/agbada-osupa-black.jpg" alt="Agbádá — Òsùpá pattern, black ground">
+        <figcaption>
+          <div class="lookname">Agbádá</div>
+          <div class="lookcut">Full robe · to commission</div>
+          <p class="lookdesc">Floor length, wide draped sleeves, raw cotton.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img class="dyn" data-cut="itura" src="assets/sel/itura-osupa-black.jpg" alt="Ìtura — Òsùpá pattern, black ground">
+        <figcaption>
+          <div class="lookname">Ìtura</div>
+          <div class="lookcut">Layered overshirt</div>
+          <p class="lookdesc">Mid-thigh, boxy square shoulder, worn closed over visible layers —
+          tee at the collar, underlayer at the hem. Brushed linen.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img class="dyn" data-cut="kekere" src="assets/look-jacket.jpg" alt="Kékeré — plain sample, embroidery to come">
+        <figcaption>
+          <div class="lookname">Kékeré</div>
+          <div class="lookcut">Box jacket</div>
+          <p class="lookdesc">High-hip length, relaxed box cut, drop shoulder, cocoa twill.</p>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="namenote">Names are proposals — Yoruba spelling and tone marks go to the family
+    for correction before anything ships. Kékeré's embroidered versions aren't photographed
+    yet; its plain sample stands in for every choice.</p>
+  </div>
+</section>
+<script>
+(function () {
+  var state = { pattern: 'osupa', ground: 'black' };
+  var NAME = {
+    agbada: 'Agbádá', itura: 'Ìtura', kekere: 'Kékeré',
+    osupa: 'Òsùpá', mezo: 'Mezőkövesd',
+    black: 'black', cream: 'cream', cocoa: 'cocoa'
+  };
+  var imgs = document.querySelectorAll('img.dyn');
+  function update() {
+    document.querySelectorAll('.opts').forEach(function (g) {
+      g.querySelectorAll('.opt').forEach(function (btn) {
+        btn.setAttribute('aria-pressed', String(btn.dataset.v === state[g.dataset.axis]));
+      });
+    });
+    imgs.forEach(function (img) {
+      var cut = img.dataset.cut;
+      if (cut === 'kekere') return;
+      img.src = 'assets/sel/' + cut + '-' + state.pattern + '-' + state.ground + '.jpg';
+      img.alt = NAME[cut] + ' — ' + NAME[state.pattern] + ' pattern, ' + NAME[state.ground] + ' ground';
+    });
+  }
+  document.querySelectorAll('.opts .opt').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      state[btn.parentNode.dataset.axis] = btn.dataset.v;
+      update();
+    });
+  });
+  ['agbada', 'itura'].forEach(function (c) {
+    ['osupa', 'mezo'].forEach(function (p) {
+      ['black', 'cream', 'cocoa'].forEach(function (g) {
+        (new Image()).src = 'assets/sel/' + c + '-' + p + '-' + g + '.jpg';
+      });
+    });
+  });
+})();
+</script>
 
 <section class="embroidery" id="embroidery">
   <div class="wrap emb-grid">
@@ -179,173 +249,6 @@
              alt="White concentric circle embroidery with seed knots on brown cloth">
         <figcaption>Òsùpá · the moon — for Ibadan to redraw</figcaption>
       </figure>
-    </div>
-  </div>
-</section>
-
-<section class="looks" id="looks">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Three, worn daily</h2>
-      <p class="eyebrow">Ibadan cut · Stockholm wear</p>
-    </div>
-    <div class="grid3">
-      <figure>
-        <img src="assets/hero.jpg" width="1280" height="1600" alt="Full agbada in raw cotton">
-        <figcaption>
-          <div class="lookname">Agbádá</div>
-          <div class="lookcut">Full robe · to commission</div>
-          <p class="lookdesc">Floor length, wide draped sleeves, raw cotton.</p>
-        </figcaption>
-      </figure>
-      <figure>
-        <div class="ph" role="img" aria-label="Design to be decided">?</div>
-        <figcaption>
-          <div class="lookname">Ìtura</div>
-          <div class="lookcut">Layered overshirt</div>
-          <p class="lookdesc">Mid-thigh, boxy square shoulder, worn closed over visible layers —
-          tee at the collar, underlayer at the hem. Brushed linen.</p>
-        </figcaption>
-      </figure>
-      <figure>
-        <img src="assets/look-overshirt.jpg" width="928" height="1152" alt="Camel collarless box piece, worn closed over a cream tee">
-        <figcaption>
-          <div class="lookname">Kékeré</div>
-          <div class="lookcut">Box jacket</div>
-          <p class="lookdesc">High-hip length, relaxed box cut, drop shoulder, cocoa twill.</p>
-        </figcaption>
-      </figure>
-    </div>
-    <p class="namenote">Names are proposals — Yoruba spelling and tone marks go to the family
-    for correction before anything ships.</p>
-  </div>
-</section>
-
-<section class="composer" id="compose">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Compose your robe</h2>
-      <p class="eyebrow">Cut · Pattern · Ground</p>
-    </div>
-    <div class="composer-grid">
-      <div>
-        <div class="stage">
-          <img id="stageA" src="assets/sel/agbada-osupa-black.jpg" alt="Agbádá, Òsùpá pattern, black ground" class="on">
-          <img id="stageB" src="assets/sel/agbada-osupa-black.jpg" alt="" aria-hidden="true">
-        </div>
-        <p class="order-line" id="orderLine">Agbádá · Òsùpá · Black</p>
-        <p class="order-note" id="orderNote"></p>
-      </div>
-      <div class="controls">
-        <div class="ctrl">
-          <h3>Cut</h3>
-          <div class="opts" data-axis="cut">
-            <button class="opt" data-v="agbada" aria-pressed="true">Agbádá<span class="sub">full robe</span></button>
-            <button class="opt" data-v="itura" aria-pressed="false">Ìtura<span class="sub">mid robe</span></button>
-            <button class="opt" data-v="kekere" aria-pressed="false">Kékeré<span class="sub">box jacket</span></button>
-          </div>
-        </div>
-        <div class="ctrl">
-          <h3>Pattern</h3>
-          <div class="opts" data-axis="pattern">
-            <button class="opt" data-v="osupa" aria-pressed="true">Òsùpá<span class="sub">the moon</span></button>
-            <button class="opt" data-v="mezo" aria-pressed="false">Mezőkövesd<span class="sub">matyó rose</span></button>
-          </div>
-        </div>
-        <div class="ctrl">
-          <h3>Ground</h3>
-          <div class="opts" data-axis="ground">
-            <button class="opt" data-v="black" aria-pressed="true"><i class="dot" style="background:#26262B"></i>Black<span class="sub">ash thread</span></button>
-            <button class="opt" data-v="cream" aria-pressed="false"><i class="dot" style="background:#EFE9DB"></i>Cream<span class="sub">cocoa thread</span></button>
-            <button class="opt" data-v="cocoa" aria-pressed="false"><i class="dot" style="background:#55432F"></i>Cocoa<span class="sub">white thread</span></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<script>
-(function () {
-  var sel = { cut: 'agbada', pattern: 'osupa', ground: 'black' };
-  var NAME = {
-    agbada: 'Agbádá', itura: 'Ìtura', kekere: 'Kékeré',
-    osupa: 'Òsùpá', mezo: 'Mezőkövesd',
-    black: 'Black', cream: 'Cream', cocoa: 'Cocoa'
-  };
-  var a = document.getElementById('stageA'), b = document.getElementById('stageB');
-  var front = a;
-  function src() {
-    return sel.cut === 'kekere'
-      ? 'assets/look-jacket.jpg'
-      : 'assets/sel/' + sel.cut + '-' + sel.pattern + '-' + sel.ground + '.jpg';
-  }
-  function update() {
-    document.querySelectorAll('.opts').forEach(function (g) {
-      g.querySelectorAll('.opt').forEach(function (btn) {
-        btn.setAttribute('aria-pressed', String(btn.dataset.v === sel[g.dataset.axis]));
-      });
-    });
-    document.getElementById('orderLine').textContent =
-      NAME[sel.cut] + ' · ' + NAME[sel.pattern] + ' · ' + NAME[sel.ground];
-    document.getElementById('orderNote').textContent =
-      sel.cut === 'kekere' ? 'Kékeré embroidery not photographed yet — plain sample shown.' : '';
-    var back = front === a ? b : a;
-    var next = new Image();
-    next.onload = function () {
-      back.src = next.src;
-      back.alt = NAME[sel.cut] + ', ' + NAME[sel.pattern] + ' pattern, ' + NAME[sel.ground] + ' ground';
-      back.classList.add('on');
-      front.classList.remove('on');
-      front.setAttribute('aria-hidden', 'true');
-      back.removeAttribute('aria-hidden');
-      front = back;
-    };
-    next.src = src();
-  }
-  document.querySelectorAll('.opts .opt').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      sel[btn.parentNode.dataset.axis] = btn.dataset.v;
-      update();
-    });
-  });
-  ['agbada', 'itura'].forEach(function (c) {
-    ['osupa', 'mezo'].forEach(function (p) {
-      ['black', 'cream', 'cocoa'].forEach(function (g) {
-        (new Image()).src = 'assets/sel/' + c + '-' + p + '-' + g + '.jpg';
-      });
-    });
-  });
-})();
-</script>
-
-<section class="palette" id="palette">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Palette</h2>
-      <p class="eyebrow">One garment, three grounds</p>
-    </div>
-    <div class="pal-grid">
-      <div class="pal-card">
-        <div class="pal-swatch" style="background:#26262B"><span style="background:#C8BFA8"></span></div>
-        <div class="pal-meta">
-          <div class="pal-name">Black · ash thread</div>
-          <p class="pal-note">The evening ground — motif as light on dark.</p>
-        </div>
-      </div>
-      <div class="pal-card">
-        <div class="pal-swatch" style="background:#EFE9DB"><span style="background:#6B4A32"></span></div>
-        <div class="pal-meta">
-          <div class="pal-name">Cream · cocoa thread</div>
-          <p class="pal-note">The daylight ground — closest to the linen reference.</p>
-        </div>
-      </div>
-      <div class="pal-card">
-        <div class="pal-swatch" style="background:#55432F"><span style="background:#F5F1E8"></span></div>
-        <div class="pal-meta">
-          <div class="pal-name">Cocoa · white thread</div>
-          <p class="pal-note">As photographed above — the reference colourway.</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
