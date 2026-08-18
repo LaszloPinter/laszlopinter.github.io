@@ -70,6 +70,27 @@
 
   .namenote { color: var(--muted); font-size: 13px; max-width: 64ch; margin: 28px 0 0; }
 
+  section.composer { padding: 88px 0; border-top: 1px solid var(--line); }
+  .composer-grid { display: grid; grid-template-columns: 6fr 5fr; gap: 56px; align-items: start; }
+  .stage { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--card); }
+  .stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.45s ease; }
+  .stage img.on { opacity: 1; }
+  .order-line { font-family: 'Cormorant Garamond', serif; font-size: 24px; margin: 16px 0 0; }
+  .order-note { color: var(--muted); font-size: 13px; margin: 4px 0 0; min-height: 1.2em; }
+  .ctrl { margin-bottom: 30px; }
+  .ctrl h3 { margin: 0 0 12px; font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .opts { display: flex; gap: 10px; flex-wrap: wrap; }
+  .opt {
+    font-family: 'Cormorant Garamond', serif; font-size: 20px; text-align: left;
+    background: none; border: 1px solid var(--line); border-radius: 2px;
+    color: var(--fg); padding: 10px 18px; cursor: pointer; min-width: 118px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .opt:hover { border-color: var(--muted); }
+  .opt[aria-pressed="true"] { border-color: var(--fg); background: var(--card); }
+  .opt .sub { display: block; font-family: 'Karla', sans-serif; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+  .opt .dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; border: 1px solid var(--line); margin-right: 8px; }
+
   section.embroidery { background: var(--cocoa); color: var(--thread); padding: 96px 0; }
   .emb-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 64px; align-items: start; }
   .embroidery .eyebrow { color: var(--thread-dim); }
@@ -97,7 +118,7 @@
 
   @media (max-width: 800px) {
     .hero .wrap, .emb-grid { grid-template-columns: 1fr; gap: 40px; }
-    .grid3, .pal-grid { grid-template-columns: 1fr; }
+    .grid3, .pal-grid, .composer-grid { grid-template-columns: 1fr; }
     nav .links { gap: 18px; }
   }
 </style>
@@ -110,6 +131,7 @@
     <span class="links">
       <a href="#embroidery">Embroidery</a>
       <a href="#looks">Looks</a>
+      <a href="#compose">Compose</a>
       <a href="#palette">Palette</a>
       <a href="#atelier">Atelier</a>
     </span>
@@ -198,6 +220,103 @@
     for correction before anything ships.</p>
   </div>
 </section>
+
+<section class="composer" id="compose">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Compose your robe</h2>
+      <p class="eyebrow">Cut · Pattern · Ground</p>
+    </div>
+    <div class="composer-grid">
+      <div>
+        <div class="stage">
+          <img id="stageA" src="assets/sel/agbada-osupa-black.jpg" alt="Agbádá, Òsùpá pattern, black ground" class="on">
+          <img id="stageB" src="assets/sel/agbada-osupa-black.jpg" alt="" aria-hidden="true">
+        </div>
+        <p class="order-line" id="orderLine">Agbádá · Òsùpá · Black</p>
+        <p class="order-note" id="orderNote"></p>
+      </div>
+      <div class="controls">
+        <div class="ctrl">
+          <h3>Cut</h3>
+          <div class="opts" data-axis="cut">
+            <button class="opt" data-v="agbada" aria-pressed="true">Agbádá<span class="sub">full robe</span></button>
+            <button class="opt" data-v="itura" aria-pressed="false">Ìtura<span class="sub">mid robe</span></button>
+            <button class="opt" data-v="kekere" aria-pressed="false">Kékeré<span class="sub">box jacket</span></button>
+          </div>
+        </div>
+        <div class="ctrl">
+          <h3>Pattern</h3>
+          <div class="opts" data-axis="pattern">
+            <button class="opt" data-v="osupa" aria-pressed="true">Òsùpá<span class="sub">the moon</span></button>
+            <button class="opt" data-v="mezo" aria-pressed="false">Mezőkövesd<span class="sub">matyó rose</span></button>
+          </div>
+        </div>
+        <div class="ctrl">
+          <h3>Ground</h3>
+          <div class="opts" data-axis="ground">
+            <button class="opt" data-v="black" aria-pressed="true"><i class="dot" style="background:#26262B"></i>Black<span class="sub">ash thread</span></button>
+            <button class="opt" data-v="cream" aria-pressed="false"><i class="dot" style="background:#EFE9DB"></i>Cream<span class="sub">cocoa thread</span></button>
+            <button class="opt" data-v="cocoa" aria-pressed="false"><i class="dot" style="background:#55432F"></i>Cocoa<span class="sub">white thread</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  var sel = { cut: 'agbada', pattern: 'osupa', ground: 'black' };
+  var NAME = {
+    agbada: 'Agbádá', itura: 'Ìtura', kekere: 'Kékeré',
+    osupa: 'Òsùpá', mezo: 'Mezőkövesd',
+    black: 'Black', cream: 'Cream', cocoa: 'Cocoa'
+  };
+  var a = document.getElementById('stageA'), b = document.getElementById('stageB');
+  var front = a;
+  function src() {
+    return sel.cut === 'kekere'
+      ? 'assets/look-jacket.jpg'
+      : 'assets/sel/' + sel.cut + '-' + sel.pattern + '-' + sel.ground + '.jpg';
+  }
+  function update() {
+    document.querySelectorAll('.opts').forEach(function (g) {
+      g.querySelectorAll('.opt').forEach(function (btn) {
+        btn.setAttribute('aria-pressed', String(btn.dataset.v === sel[g.dataset.axis]));
+      });
+    });
+    document.getElementById('orderLine').textContent =
+      NAME[sel.cut] + ' · ' + NAME[sel.pattern] + ' · ' + NAME[sel.ground];
+    document.getElementById('orderNote').textContent =
+      sel.cut === 'kekere' ? 'Kékeré embroidery not photographed yet — plain sample shown.' : '';
+    var back = front === a ? b : a;
+    var next = new Image();
+    next.onload = function () {
+      back.src = next.src;
+      back.alt = NAME[sel.cut] + ', ' + NAME[sel.pattern] + ' pattern, ' + NAME[sel.ground] + ' ground';
+      back.classList.add('on');
+      front.classList.remove('on');
+      front.setAttribute('aria-hidden', 'true');
+      back.removeAttribute('aria-hidden');
+      front = back;
+    };
+    next.src = src();
+  }
+  document.querySelectorAll('.opts .opt').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      sel[btn.parentNode.dataset.axis] = btn.dataset.v;
+      update();
+    });
+  });
+  ['agbada', 'itura'].forEach(function (c) {
+    ['osupa', 'mezo'].forEach(function (p) {
+      ['black', 'cream', 'cocoa'].forEach(function (g) {
+        (new Image()).src = 'assets/sel/' + c + '-' + p + '-' + g + '.jpg';
+      });
+    });
+  });
+})();
+</script>
 
 <section class="palette" id="palette">
   <div class="wrap">
