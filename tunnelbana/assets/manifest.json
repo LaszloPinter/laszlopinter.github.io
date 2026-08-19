@@ -1,0 +1,28 @@
+{
+  "strips": [
+    {
+      "name": "wizard",
+      "anim": "walk",
+      "frames": 8,
+      "file": "wizard-strip8.png"
+    },
+    {
+      "name": "wizard",
+      "anim": "idle",
+      "frames": 8,
+      "file": "wizard-idle.png"
+    },
+    {
+      "name": "wizard",
+      "anim": "cast",
+      "frames": 7,
+      "file": "wizard-cast.png"
+    },
+    {
+      "name": "wizard",
+      "anim": "castb",
+      "frames": 8,
+      "file": "wizard-castb.png"
+    }
+  ]
+}
