@@ -171,7 +171,7 @@
         </figcaption>
       </figure>
       <figure>
-        <img class="dyn" data-cut="kekere" src="assets/sel/kekere-sample.jpg" alt="Kékeré — embroidered sample, camel; full set to come">
+        <img class="dyn" data-cut="kekere" src="assets/sel/kekere-osupa-black.jpg" alt="Kékeré — Òsùpá pattern, black ground">
         <figcaption>
           <div class="lookname">Kékeré</div>
           <div class="lookcut">Box jacket</div>
@@ -180,8 +180,7 @@
       </figure>
     </div>
     <p class="namenote">Names are proposals — Yoruba spelling and tone marks go to the family
-    for correction before anything ships. Kékeré's full set isn't photographed yet — one
-    embroidered sample stands in for every choice.</p>
+    for correction before anything ships.</p>
   </div>
 </section>
 <script>
@@ -201,7 +200,6 @@
     });
     imgs.forEach(function (img) {
       var cut = img.dataset.cut;
-      if (cut === 'kekere') return;
       img.src = 'assets/sel/' + cut + '-' + state.pattern + '-' + state.ground + '.jpg';
       img.alt = NAME[cut] + ' — ' + NAME[state.pattern] + ' pattern, ' + NAME[state.ground] + ' ground';
     });
@@ -212,7 +210,7 @@
       update();
     });
   });
-  ['agbada', 'itura'].forEach(function (c) {
+  ['agbada', 'itura', 'kekere'].forEach(function (c) {
     ['osupa', 'mezo'].forEach(function (p) {
       ['black', 'cream', 'cocoa'].forEach(function (g) {
         (new Image()).src = 'assets/sel/' + c + '-' + p + '-' + g + '.jpg';
